@@ -698,6 +698,12 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[2]
       value: 
       objectReference: {fileID: 8147431724889523305}
+    - target: {fileID: 261895802282355078, guid: 8d49f4b20eb051544918b58dbfa2fb3b,
+        type: 3}
+      propertyPath: waveConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 386bf0fa05c53c741915282de0dc9c7e,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d49f4b20eb051544918b58dbfa2fb3b, type: 3}
 --- !u!1001 &1425374024385982082
