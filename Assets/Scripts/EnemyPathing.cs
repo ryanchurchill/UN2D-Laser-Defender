@@ -36,6 +36,9 @@ public class EnemyPathing : MonoBehaviour
             {
                 targetWaypointIndex++;
             }
+        } else
+        {
+            Destroy(gameObject);
         }
     }
 
