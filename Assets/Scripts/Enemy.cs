@@ -54,6 +54,7 @@ public class Enemy : MonoBehaviour
         // TODO: should this be in DamageTaker class?
         DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
         health -= damageDealer.GetDamage();
+        damageDealer.Hit();
         if (health <= 0)
         {
             Destroy(gameObject);
