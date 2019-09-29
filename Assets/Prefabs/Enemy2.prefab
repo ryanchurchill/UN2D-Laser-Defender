@@ -112,10 +112,11 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2417356023808090653, guid: f8d59c5f173e308409158de06f82f7cc,
     type: 3}
   projectileSpeed: 10
+  shootingSound: {fileID: 8300000, guid: 23a3cc612ece2a7449e6f6497451be92, type: 3}
   deathVFX: {fileID: 4002851491972344730, guid: 73cc96c11668ef54ba22c0affd812ce5,
     type: 3}
   deathVFXDuration: 1
-  secUntilNextShot: 0
+  deathSound: {fileID: 8300000, guid: a5338f97706d33e469e36320dcd76bd1, type: 3}
 --- !u!58 &1643171331
 CircleCollider2D:
   m_ObjectHideFlags: 0
