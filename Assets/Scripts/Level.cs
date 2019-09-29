@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
-    public void LoadGameOver()
+    public void LoadGameOverWithDelay()
     {
-        SceneManager.LoadScene("Game Over");
+        StartCoroutine(LoadGameOverWithDelayCR());
     }
 
-    public IEnumerator LoadGameOverWithDelay()
+    public IEnumerator LoadGameOverWithDelayCR()
     {
-        yield return new WaitForSeconds(1);
-        LoadGameOver();
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Game Over");
     }
 
     public void LoadGameScene()

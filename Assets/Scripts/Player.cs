@@ -109,8 +109,8 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        StartCoroutine(FindObjectOfType<Level>().LoadGameOverWithDelay());
+        FindObjectOfType<Level>().LoadGameOverWithDelay();
         AudioSource.PlayClipAtPoint(deathSound, transform.position);
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }
