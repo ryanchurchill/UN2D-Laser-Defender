@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float maxTimeBetweenShots = 3f;
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileSpeed = 10; // TODO: take from separate config?
+    [SerializeField] GameObject deathVFX;
+    [SerializeField] float deathVFXDuration = 1f;
 
     // other
     [SerializeField] float secUntilNextShot;
@@ -53,11 +55,26 @@ public class Enemy : MonoBehaviour
     {
         // TODO: should this be in DamageTaker class?
         DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
+        if (damageDealer)
+        {
+            ProcessHit(damageDealer);
+        }
+    }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
+        Destroy(explosion, deathVFXDuration);
     }
 }
