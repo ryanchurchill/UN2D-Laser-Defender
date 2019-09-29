@@ -7,28 +7,30 @@ public class Enemy : MonoBehaviour
 {
     // config
 
-    // enemy
-    [SerializeField] float health = 100;
+    [Header("Enemy")]
+    [SerializeField] int initialHealth = 100;
     [SerializeField] float minTimeBetweenShots = .2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
 
-    // projectile
+    [Header("Projectile")]
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileSpeed = 10; // TODO: take from separate config?
     [SerializeField] AudioClip shootingSound;
 
-    // death
+    [Header("Death")]
     [SerializeField] GameObject deathVFX;
     [SerializeField] float deathVFXDuration = 1f;
     [SerializeField] AudioClip deathSound;
 
     // other
     float secUntilNextShot;
+    int health;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        health = initialHealth;
         ResetShotTimer();
     }
 
@@ -82,6 +84,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        FindObjectOfType<GameSession>().increaseScore(initialHealth);
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explosion, deathVFXDuration);
         // Udemy recommends playing at camera 
