@@ -10,6 +10,12 @@ public class Level : MonoBehaviour
         SceneManager.LoadScene("Game Over");
     }
 
+    public IEnumerator LoadGameOverWithDelay()
+    {
+        yield return new WaitForSeconds(1);
+        LoadGameOver();
+    }
+
     public void LoadGameScene()
     {
         SceneManager.LoadScene("Level");

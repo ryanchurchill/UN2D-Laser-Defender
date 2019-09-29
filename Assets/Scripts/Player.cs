@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = .5f;
     [SerializeField] int health = 200;
     [SerializeField] AudioClip deathSound;
-    [SerializeField] Level levelLoader;
 
     [Header("Projectile")]
     [SerializeField] GameObject laserPrefab;
@@ -110,8 +109,8 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        StartCoroutine(FindObjectOfType<Level>().LoadGameOverWithDelay());
         AudioSource.PlayClipAtPoint(deathSound, transform.position);
-        Destroy(gameObject);
-        levelLoader.LoadGameOver();
+        //Destroy(gameObject);
     }
 }
