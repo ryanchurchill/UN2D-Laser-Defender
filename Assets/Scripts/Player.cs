@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -37,6 +38,11 @@ public class Player : MonoBehaviour
     {
         MoveFromInput();
         FireFromInput();
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 
     private void SetUpMoveBoundaries()
@@ -101,6 +107,8 @@ public class Player : MonoBehaviour
     {
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
+        // TODO: event would be better
+        FindObjectOfType<HealthText>().GetComponent<Text>().text = GetHealth().ToString();
         if (health <= 0)
         {
             Die();
